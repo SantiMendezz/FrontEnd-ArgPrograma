@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+
+<div class="container center-container mt-5 mb-5 pt-5 pb-4">
+    <div class="" style="text-align:center;">
+        <img src="./assets/images/APLogo-20-20.png" class="educacion-imagen">
+    </div>
+    <div class="row text-center mb-2">
+      <h1 class="" style="color: white;">Login</h1>
+    </div>
+    <form #loginForm="ngForm" (ngSubmit)= "login(loginForm)">
+      <div class="">
+          <h4 class="p-3">Email</h4>
+          <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" 
+              name="email"  [(ngModel)]= "creds.email">
+              <label for="floatingInput">Dirección de correo</label>
+            </div>
+            <h4 class="p-3">Contraseña</h4>
+            <div class="form-floating">
+              <input type="password" class="form-control" id="floatingPassword" placeholder="Password" 
+              name="password" [(ngModel)]= "creds.password">
+              <label for="floatingPassword">Contraseña</label>
+            </div>
+      </div>
+      <div class="d-grid gap-2 pt-5 mb-4 mt-3">
+          <button class="btn btn-dark" type="submit">Ingresar</button>
+      </div>
+    </form>
+</div>
+
+<app-footer></app-footer>

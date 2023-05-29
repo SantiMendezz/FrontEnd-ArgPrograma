@@ -1,0 +1,30 @@
+<div class=" mt-4 pt-3 pb-3 center-container container">
+  
+    <div class="row text-center mb-2">
+      <h2 class="" style="color: white;">Educación</h2>
+    </div>
+    
+    <div class="mb-3 text-center">
+      <button class="btn btn-success" type="button" *ngIf="comprobarSesion()" routerLink="/registrar-educacion">Agregar</button>
+    </div>
+
+    <div *ngFor="let educ of educacion" class="row mb-3">
+
+      <div class="col text-center">
+        <img src="./assets/images/{{educ.imagen}}" class="educacion-imagen ">
+      </div>
+      <div class="col">
+        <h4>{{educ.nombre}}</h4>
+        <p>Institución/Programa: {{educ.institucion}}.</p>
+        <p>Duración: {{educ.duracion}} meses.</p>
+        <p>Finalizado: {{educ.finalizado}}.</p>
+        <div class="mb-3">
+          <!-- <button (click)= "actualizarEducacion(educ)" type="button" class="btn btn-primary">Actualizar</button> -->
+          <button (click)= "verEdicionDeEducacion(educ.id)" *ngIf="comprobarSesion()" type="button" class="btn btn-primary">Editar</button>
+        </div>
+        <div class="mb-3">
+          <button (click)= "eliminarEducacion(educ.id)" *ngIf="comprobarSesion()" type="button" class="btn btn-danger">Eliminar</button>
+        </div>
+        <div>
+          <div>
+  </div>

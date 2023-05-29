@@ -1,0 +1,108 @@
+<app-navbar></app-navbar>
+
+<div class="container center-container mt-5 mb-5 pt-5 pb-4">
+    <div class="" style="text-align:center;">
+        <img src="./assets/images/APLogo-20-20.png" class="educacion-imagen">
+    </div>
+    <div class="row text-center mb-2">
+      <h1 class="" style="color: white;">Agregar Educación</h1>
+    </div>
+      <form (ngSubmit)= "onSubmit()" #educacionForm= "ngForm">
+        
+        <h4 class="p-3">Nombre Curso</h4>
+        <div class="form-floating mb-3">
+            <!-- Relacionamos los atributos del modelo usando el ngModel -->
+            <input type="text" class="form-control" placeholder="Desarrollador Full-Stack" id="nombre" [(ngModel)]= "educacion.nombre" name="nombre"
+            required minlength="4" maxlength="60" #nombre="ngModel">
+            <div class="alert alert-danger" *ngIf= "nombre.invalid && (nombre.dirty || nombre.touched)">
+              <div *ngIf= "nombre.errors.required">
+                Digite su nombre por favor
+              </div>
+              <div *ngIf= "nombre.errors.minlength">
+                Debe contener como mínimo 4 caracteres
+              </div>
+              <div *ngIf= "nombre.errors.maxlength">
+                Debe contener como máximo 60 caracteres
+              </div>
+            </div>
+            <label for="floatingInput">Nombre</label>
+          </div>
+
+          <h4 class="p-3">Institución Educativa:</h4>
+          <div class="form-floating">
+            <input type="text" class="form-control" placeholder="Argentina Programa" id="institucion" [(ngModel)]= "educacion.institucion" name="institucion"
+            required minlength="2" maxlength="60" #institucion="ngModel">
+            <div class="alert alert-danger" *ngIf= "institucion.invalid && (institucion.dirty || institucion.touched)">
+              <div *ngIf= "institucion.errors.required">
+                Digite la institucion por favor
+              </div>
+              <div *ngIf= "institucion.errors.minlength">
+                Debe contener como mínimo 2 caracteres
+              </div>
+              <div *ngIf= "institucion.errors.maxlength">
+                Debe contener como máximo 60 caracteres
+              </div>
+            </div>
+            <label for="floatingInput">Institución</label>
+          </div>
+
+          <h4 class="p-3">Duración en Meses:</h4>
+          <div class="form-floating">
+            <input type="number" class="form-control" placeholder="4" id="duracion" [(ngModel)]= "educacion.duracion" name="duracion"
+            required min="1" max="12" #duracion="ngModel">
+            <div class="alert alert-danger" *ngIf= "duracion.invalid && (duracion.dirty || duracion.touched)">
+              <div *ngIf= "duracion.errors.required">
+                Digite la duracion por favor
+              </div>
+              <div *ngIf= "duracion.errors.min">
+                Debe como mínimo ser de 1 mes
+              </div>
+              <div *ngIf= "duracion.errors.max">
+                Debe como máximo ser de 12 meses
+              </div>
+            </div>
+            <label for="floatingInput number">Cantidad de Meses</label>
+          </div>
+
+          <h4 class="p-3">Año cursado:</h4>
+          <div class="form-floating">
+            <input type="number" class="form-control" placeholder="2022" id="finalizado" [(ngModel)]= "educacion.finalizado" name="finalizado"
+            required min="1950" max="2023" #finalizado="ngModel">
+            <div class="alert alert-danger" *ngIf= "finalizado.invalid && (finalizado.dirty || finalizado.touched)">
+              <div *ngIf= "finalizado.errors.required">
+                Digite la duracion por favor
+              </div>
+              <div *ngIf= "finalizado.errors.min">
+                Debe como mínimo ser de 1950
+              </div>
+              <div *ngIf= "finalizado.errors.max">
+                Debe como máximo ser de 2023
+              </div>
+            </div>
+            <label for="floatingInput number">Año en que se cursó</label>
+          </div>
+
+          <h4 class="p-3">Imágen:</h4>
+          <div class="form-floating">
+            <input type="file" class="form-control" placeholder="Imagen"  id="imagen" [(ngModel)]= "educacion.imagen" name="imagen"
+            required minlength="4" maxlength="60" #imagen="ngModel">
+            <div class="alert alert-danger" *ngIf= "imagen.invalid && (imagen.dirty || imagen.touched)">
+              <div *ngIf= "imagen.errors.required">
+                Digite la duracion por favor
+              </div>
+              <div *ngIf= "imagen.errors.minlength">
+                Debe contener como mínimo 4 caracteres
+              </div>
+              <div *ngIf= "imagen.errors.maxlength">
+                Debe contener como máximo 60 caracteres
+              </div>
+            </div>
+            <label for="floatingInput">Imagen</label>
+          </div>
+        
+        <div class="d-grid gap-2 pt-5 mb-4 mt-3">
+          <!-- El button debe ser de tipo submit para poder enviar los datos -->
+          <button class="btn btn-success" type="submit" [disabled]= "!educacionForm.form.valid">Agregar</button>
+        </div>
+      </form>
+</div>

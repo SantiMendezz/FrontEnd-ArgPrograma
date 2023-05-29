@@ -1,0 +1,90 @@
+<app-navbar></app-navbar>
+
+<div class="container center-container mt-5 mb-5 pt-5 pb-4">
+    <div class="" style="text-align:center;">
+        <img src="./assets/images/APLogo-20-20.png" class="educacion-imagen">
+    </div>
+    <div class="row text-center mb-2">
+      <h1 class="" style="color: white;">Agregar Educación</h1>
+    </div>
+      <form #personaForm= "ngForm">
+        
+        <h4 class="p-3">Nombre Curso</h4>
+        <div class="form-floating mb-3">
+            <!-- Relacionamos los atributos del modelo usando el ngModel -->
+            <input type="text" class="form-control" placeholder="Desarrollador Full-Stack" id="nombre" [(ngModel)]= "persona.nombre" name="nombre"
+            required minlength="4" maxlength="60" #nombre="ngModel">
+            <div class="alert alert-danger" *ngIf= "nombre.invalid && (nombre.dirty || nombre.touched)">
+              <div *ngIf= "nombre.errors.required">
+                Digite su nombre por favor
+              </div>
+              <div *ngIf= "nombre.errors.minlength">
+                Debe contener como mínimo 4 caracteres
+              </div>
+              <div *ngIf= "nombre.errors.maxlength">
+                Debe contener como máximo 60 caracteres
+              </div>
+            </div>
+            <label for="floatingInput">Nombre</label>
+          </div>
+
+          <h4 class="p-3">Institución Educativa:</h4>
+          <div class="form-floating">
+            <input type="text" class="form-control" placeholder="Argentina Programa" id="institucion" [(ngModel)]= "persona.puesto" name="puesto"
+            required minlength="2" maxlength="60" #puesto="ngModel">
+            <div class="alert alert-danger" *ngIf= "puesto.invalid && (puesto.dirty || puesto.touched)">
+              <div *ngIf= "puesto.errors.required">
+                Digite la institucion por favor
+              </div>
+              <div *ngIf= "puesto.errors.minlength">
+                Debe contener como mínimo 2 caracteres
+              </div>
+              <div *ngIf= "puesto.errors.maxlength">
+                Debe contener como máximo 60 caracteres
+              </div>
+            </div>
+            <label for="floatingInput">Institución</label>
+          </div>
+
+          <h4 class="p-3">Sobre mi:</h4>
+          <div class="form-floating">
+            <input type="number" class="form-control" placeholder="4" id="duracion" [(ngModel)]= "persona.sobre_mi" name="sobre_mi"
+            required min="1" max="12" #sobre_mi="ngModel">
+            <div class="alert alert-danger" *ngIf= "sobre_mi.invalid && (sobre_mi.dirty || sobre_mi.touched)">
+                <div *ngIf= "sobre_mi.errors.required">
+                  Digite la institucion por favor
+                </div>
+                <div *ngIf= "sobre_mi.errors.minlength">
+                  Debe contener como mínimo 2 caracteres
+                </div>
+                <div *ngIf= "sobre_mi.errors.maxlength">
+                  Debe contener como máximo 60 caracteres
+                </div>
+              </div>
+            <label for="floatingInput number">Cantidad de Meses</label>
+          </div>
+
+          <h4 class="p-3">Imágen:</h4>
+          <div class="form-floating">
+            <input type="file" class="form-control" placeholder="Imagen"  id="imagen" [(ngModel)]= "persona.imagen" name="imagen"
+            required minlength="4" maxlength="60" #imagen="ngModel">
+            <div class="alert alert-danger" *ngIf= "imagen.invalid && (imagen.dirty || imagen.touched)">
+              <div *ngIf= "imagen.errors.required">
+                Digite la duracion por favor
+              </div>
+              <div *ngIf= "imagen.errors.minlength">
+                Debe contener como mínimo 4 caracteres
+              </div>
+              <div *ngIf= "imagen.errors.maxlength">
+                Debe contener como máximo 60 caracteres
+              </div>
+            </div>
+            <label for="floatingInput">Imagen</label>
+          </div>
+        
+        <div class="d-grid gap-2 pt-5 mb-4 mt-3">
+          <!-- El button debe ser de tipo submit para poder enviar los datos -->
+          <button (click)= "actualizarPersona()"  class=" btn btn-success" type="submit" [disabled]= "!personaForm.form.valid">Actualizar</button>
+        </div>
+      </form>
+</div>

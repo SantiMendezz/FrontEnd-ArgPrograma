@@ -1,0 +1,25 @@
+<!-- <div *ngIf="checkearPersona() == true" class="text-center acercaDe pb-3 pt-3">
+  <h3>Sobre mí:</h3>
+  <button class="btn btn-success" type="button" routerLink="/registrar-persona">Agregar</button>
+</div> -->
+<div class="acercaDe d-flex flex-row justify-content-start align-items-start" *ngFor="let perso of persona">
+    <div class="col-lg-2 m-2">
+        <img src="./assets/images/{{perso.imagen}}" class="acercaDe-imagen">
+        <h4 style="color: white;">{{perso.nombre}}</h4>
+        <p class="">{{perso.puesto}}</p>
+        <!-- <div class="mb-3 text-center">
+            <button class="btn btn-success" type="button" routerLink="/registrar-persona">Agregar</button>
+        </div> -->
+        <div class="mb-3 text-center">
+          <button (click)= "verEdicionDePersona(perso.id)" *ngIf="comprobarSesion()" type="button" class="btn btn-primary">Editar</button>
+        </div>
+        <div class="text-center">
+          <button (click)= "eliminarPersona(perso.id)" *ngIf="comprobarSesion()" type="button" class="btn btn-danger">Eliminar</button>
+        </div>
+    </div>
+
+    <div class="col-lg-8 mt-5 m-4">
+        <h3>Sobre mí:</h3>
+        <p>{{perso.sobre_mi}}</p>
+    </div>
+</div>
