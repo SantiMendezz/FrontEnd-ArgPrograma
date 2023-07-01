@@ -1,0 +1,90 @@
+<app-navbar></app-navbar>
+
+<div class="container center-container mt-5 mb-5 pt-5 pb-4">
+    <div class="" style="text-align:center;">
+        <img src="./assets/images/APLogo-20-20.png" class="educacion-imagen">
+    </div>
+    <div class="row text-center mb-2">
+      <h1 class="" style="color: white;">Agregar Experiencia</h1>
+    </div>
+      <form (ngSubmit)= "onSubmit()" #trabajoForm= "ngForm">
+        
+        <h4 class="p-3">Nombre Puesto</h4>
+        <div class="form-floating mb-3">
+            <!-- Relacionamos los atributos del modelo usando el ngModel -->
+            <input type="text" class="form-control" placeholder="Desarrollador Jr." id="nombre" [(ngModel)]= "trabajo.puesto" name="puesto"
+            required minlength="4" maxlength="60" #puesto="ngModel">
+            <div class="alert alert-danger" *ngIf= "puesto.invalid && (puesto.dirty || puesto.touched)">
+              <div *ngIf= "puesto.errors.required">
+                Digite el puesto por favor
+              </div>
+              <div *ngIf= "puesto.errors.minlength">
+                Debe contener como mínimo 4 caracteres
+              </div>
+              <div *ngIf= "puesto.errors.maxlength">
+                Debe contener como máximo 60 caracteres
+              </div>
+            </div>
+            <label for="floatingInput">Puesto</label>
+          </div>
+
+          <h4 class="p-3">Periodo:</h4>
+          <div class="form-floating">
+            <input type="text" class="form-control" placeholder="Argentina Programa" id="institucion" [(ngModel)]= "trabajo.periodo" name="institucion"
+            required minlength="2" maxlength="60" #periodo="ngModel">
+            <div class="alert alert-danger" *ngIf= "periodo.invalid && (periodo.dirty || periodo.touched)">
+              <div *ngIf= "periodo.errors.required">
+                Digite el periodo del puesto por favor
+              </div>
+              <div *ngIf= "periodo.errors.minlength">
+                Debe contener como mínimo 2 caracteres
+              </div>
+              <div *ngIf= "periodo.errors.maxlength">
+                Debe contener como máximo 60 caracteres
+              </div>
+            </div>
+            <label for="floatingInput">Periodo</label>
+          </div>
+
+          <h4 class="p-3">Imágen:</h4>
+          <div class="form-floating">
+            <input type="file" class="form-control" placeholder="Imagen"  id="imagen" [(ngModel)]= "trabajo.imagen" name="imagen"
+            required minlength="4" maxlength="60" #imagen="ngModel">
+            <div class="alert alert-danger" *ngIf= "imagen.invalid && (imagen.dirty || imagen.touched)">
+              <div *ngIf= "imagen.errors.required">
+                Digite la duracion por favor
+              </div>
+              <div *ngIf= "imagen.errors.minlength">
+                Debe contener como mínimo 4 caracteres
+              </div>
+              <div *ngIf= "imagen.errors.maxlength">
+                Debe contener como máximo 60 caracteres
+              </div>
+            </div>
+            <label for="floatingInput">Imagen</label>
+          </div>
+
+          <h4 class="p-3">Descripción:</h4>
+          <div class="form-floating">
+            <input type="text" class="form-control" placeholder="Argentina Programa" id="institucion" [(ngModel)]= "trabajo.descripcion" name="descripcion"
+            required minlength="2" maxlength="120" #descripcion="ngModel">
+            <div class="alert alert-danger" *ngIf= "descripcion.invalid && (descripcion.dirty || descripcion.touched)">
+              <div *ngIf= "descripcion.errors.required">
+                Digite una descripcion del puesto por favor
+              </div>
+              <div *ngIf= "descripcion.errors.minlength">
+                Debe contener como mínimo 2 caracteres
+              </div>
+              <div *ngIf= "descripcion.errors.maxlength">
+                Debe contener como máximo 120 caracteres
+              </div>
+            </div>
+            <label for="floatingInput">Descripción</label>
+          </div>
+        
+        <div class="d-grid gap-2 pt-5 mb-4 mt-3">
+          <!-- El button debe ser de tipo submit para poder enviar los datos -->
+          <button class="btn btn-success" type="submit" [disabled]= "!trabajoForm.form.valid">Agregar</button>
+        </div>
+      </form>
+</div>

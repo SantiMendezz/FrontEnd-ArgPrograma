@@ -9,7 +9,10 @@ import { Observable } from 'rxjs';
 export class EducacionService {
 
   //Esta Url obtiene el listado de toda la educacion en el BackEnd
-  private baseURL = "http://localhost:8080/api/v1/educacion";
+  //private baseURL = "http://localhost:8080/api/v1/educacion";
+
+  //Base de datos de render
+  private baseURL = "https://backend-argprograma-ppaj.onrender.com/educacion";
 
   constructor(private httpClient : HttpClient) {}
 

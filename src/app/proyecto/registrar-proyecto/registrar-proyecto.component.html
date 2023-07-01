@@ -1,0 +1,180 @@
+<app-navbar></app-navbar>
+
+<div class="container center-container mt-5 mb-5 pt-5 pb-4">
+    <div class="" style="text-align:center;">
+        <img src="./assets/images/APLogo-20-20.png" class="educacion-imagen">
+    </div>
+    <div class="row text-center mb-2">
+      <h1 class="" style="color: white;">Agregar Proyecto</h1>
+    </div>
+      <form (ngSubmit)= "onSubmit()" #proyectoForm= "ngForm">
+        
+        <h4 class="p-3">Nombre Proyecto</h4>
+        <div class="form-floating mb-3">
+            <!-- Relacionamos los atributos del modelo usando el ngModel -->
+            <input type="text" class="form-control" placeholder="" id="nombre" [(ngModel)]= "proyecto.nombre" name="nombre"
+            required minlength="4" maxlength="120" #nombre="ngModel">
+            <div class="alert alert-danger" *ngIf= "nombre.invalid && (nombre.dirty || nombre.touched)">
+              <div *ngIf= "nombre.errors.required">
+                Digite su nombre por favor
+              </div>
+              <div *ngIf= "nombre.errors.minlength">
+                Debe contener como mínimo 4 caracteres
+              </div>
+              <div *ngIf= "nombre.errors.maxlength">
+                Debe contener como máximo 120 caracteres
+              </div>
+            </div>
+            <label for="floatingInput">Nombre</label>
+          </div>
+
+          <h4 class="p-3">Año de realización:</h4>
+          <div class="form-floating">
+            <input type="number" class="form-control" placeholder="2023" id="fecha" [(ngModel)]= "proyecto.fecha" name="anio"
+            required min="1950" max="2023" #fecha="ngModel">
+            <div class="alert alert-danger" *ngIf= "fecha.invalid && (fecha.dirty || fecha.touched)">
+              <div *ngIf= "fecha.errors.required">
+                Digite la duracion por favor
+              </div>
+              <div *ngIf= "fecha.errors.min">
+                Debe como mínimo ser de 1950
+              </div>
+              <div *ngIf= "fecha.errors.max">
+                Debe como máximo ser de 2023
+              </div>
+            </div>
+            <label for="floatingInput number">Año en que se realizó</label>
+          </div>
+
+          <h4 class="p-3">Descripción:</h4>
+          <div class="form-floating">
+            <input type="text" class="form-control" placeholder="" id="descripcion" [(ngModel)]= "proyecto.descripcion" name="descripcion"
+            required minlength="1" maxlength="240" #descripcion="ngModel">
+            <div class="alert alert-danger" *ngIf= "descripcion.invalid && (descripcion.dirty || descripcion.touched)">
+              <div *ngIf= "descripcion.errors.required">
+                Digite la institucion por favor
+              </div>
+              <div *ngIf= "descripcion.errors.minlength">
+                Debe contener como mínimo 2 caracteres
+              </div>
+              <div *ngIf= "descripcion.errors.maxlength">
+                Debe contener como máximo 240 caracteres
+              </div>
+            </div>
+            <label for="floatingInput">Descripción</label>
+          </div>
+
+          <h4 class="p-3">Tecnologías:</h4>
+          <div class="form-floating">
+            <input type="text" class="form-control" placeholder="" id="tecnologia" [(ngModel)]= "proyecto.tecnologia" name="tecnologia"
+            required minlength="1" maxlength="120" #tecnologia="ngModel">
+            <div class="alert alert-danger" *ngIf= "tecnologia.invalid && (tecnologia.dirty || tecnologia.touched)">
+              <div *ngIf= "tecnologia.errors.required">
+                Digite la institucion por favor
+              </div>
+              <div *ngIf= "tecnologia.errors.minlength">
+                Debe contener como mínimo 2 caracteres
+              </div>
+              <div *ngIf= "tecnologia.errors.maxlength">
+                Debe contener como máximo 120 caracteres
+              </div>
+            </div>
+            <label for="floatingInput">Tecnologías</label>
+          </div>
+
+          <h4 class="p-3">Link del proyecto:</h4>
+          <div class="form-floating">
+            <input type="text" class="form-control" placeholder="" id="link" [(ngModel)]= "proyecto.link" name="link"
+            required minlength="1" maxlength="240" #link="ngModel">
+            <div class="alert alert-danger" *ngIf= "link.invalid && (link.dirty || link.touched)">
+              <div *ngIf= "link.errors.required">
+                Digite la institucion por favor
+              </div>
+              <div *ngIf= "link.errors.minlength">
+                Debe contener como mínimo 2 caracteres
+              </div>
+              <div *ngIf= "link.errors.maxlength">
+                Debe contener como máximo 240 caracteres
+              </div>
+            </div>
+            <label for="floatingInput">Link</label>
+          </div>
+
+          <h4 class="p-3">Primer imagen:</h4>
+          <div class="form-floating">
+            <input type="file" class="form-control" id="primer_imagen" name="primer_imagen"
+              accept="image/*" [required]="!proyecto.primer_imagen" (change)="onFileChange($event, 'primer_imagen')">
+            <div class="alert alert-danger" *ngIf="primerImagen?.nativeElement.invalid && (primerImagen?.nativeElement.dirty || primerImagen?.nativeElement.touched)">
+              <div *ngIf="primerImagen?.nativeElement.errors?.required">
+                Por favor, seleccione una imagen
+              </div>
+            </div>
+            <label for="primer_imagen">Ingrese la primer imagen</label>
+          </div>
+
+          <h4 class="p-3">Segunda imagen:</h4>
+          <div class="form-floating">
+            <input type="file" class="form-control" id="segundo_imagen" name="segundo_imagen"
+              accept="image/*" [required]="!proyecto.segundo_imagen" (change)="onFileChange($event, 'segundo_imagen')">
+            <div class="alert alert-danger" *ngIf="segundoImagen?.nativeElement.invalid && (segundoImagen?.nativeElement.dirty || segundoImagen?.nativeElement.touched)">
+              <div *ngIf="segundoImagen?.nativeElement.errors?.required">
+                Por favor, seleccione una imagen
+              </div>
+            </div>
+            <label for="segundo_imagen">Ingrese la segunda imagen</label>
+          </div>
+
+          <h4 class="p-3">Tercer imagen:</h4>
+          <div class="form-floating">
+            <input type="file" class="form-control" id="tercer_imagen" name="tercer_imagen"
+              accept="image/*" [required]="!proyecto.tercer_imagen" (change)="onFileChange($event, 'tercer_imagen')">
+            <div class="alert alert-danger" *ngIf="tercerImagen?.nativeElement.invalid && (tercerImagen?.nativeElement.dirty || tercerImagen?.nativeElement.touched)">
+              <div *ngIf="tercerImagen?.nativeElement.errors?.required">
+                Por favor, seleccione una imagen
+              </div>
+            </div>
+            <label for="tercer_imagen">Ingrese la tercer imagen</label>
+          </div>
+
+          <!-- <h4 class="p-3">Primer imagen:</h4>
+          <div class="form-floating">
+            <input type="file" class="form-control" id="primer_imagen" name="primer_imagen"
+              accept="image/*" [required]="!proyecto.primer_imagen" (change)="onFileChange($event, 'primer_imagen')">
+            <div class="alert alert-danger" *ngIf= "primerImagen.invalid && (primerImagen.dirty || primerImagen.touched)">
+              <div *ngIf="primerImagen.errors.required">
+                Por favor, seleccione una imagen
+              </div>
+            </div>
+            <label for="primer_imagen">Ingrese la primer imagen</label>
+          </div> -->
+
+          <!-- <h4 class="p-3">Segunda imagen:</h4>
+          <div class="form-floating">
+            <input type="file" class="form-control" id="segundo_imagen" name="segundo_imagen"
+              accept="image/*" [required]="!proyecto.segundo_imagen" (change)="onFileChange($event, 'segundo_imagen')">
+            <div class="alert alert-danger" *ngIf= "segundoImagen.invalid && (segundoImagen.dirty || segundoImagen.touched)">
+              <div *ngIf="segundoImagen.errors.required">
+                Por favor, seleccione una imagen
+              </div>
+            </div>
+            <label for="segundo_imagen">Ingrese la segunda imagen</label>
+          </div>
+
+          <h4 class="p-3">Tercer imagen:</h4>
+          <div class="form-floating">
+            <input type="file" class="form-control" id="tercer_imagen" name="tercer_imagen"
+              accept="image/*" [required]="!proyecto.tercer_imagen" (change)="onFileChange($event, 'tercer_imagen')">
+            <div class="alert alert-danger" *ngIf= "tercerImagen.invalid && (tercerImagen.dirty || tercerImagen.touched)">
+              <div *ngIf="tercerImagen.errors.required">
+                Por favor, seleccione una imagen
+              </div>
+            </div>
+            <label for="tercer_imagen">Ingrese la tercer imagen</label>
+          </div> -->
+        
+        <div class="d-grid gap-2 pt-5 mb-4 mt-3">
+          <!-- El button debe ser de tipo submit para poder enviar los datos -->
+          <button class="btn btn-success" type="submit" [disabled]= "!proyectoForm.form.valid">Agregar</button>
+        </div>
+      </form>
+</div>

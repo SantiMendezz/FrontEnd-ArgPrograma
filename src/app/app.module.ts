@@ -19,10 +19,20 @@ import { EditarEducacionComponent } from './educacion/editar-educacion/editar-ed
 import { ListarPersonaComponent } from './persona/listar-persona/listar-persona.component';
 import { EditarPersonaComponent } from './persona/editar-persona/editar-persona.component';
 import { RegistrarPersonaComponent } from './persona/registrar-persona/registrar-persona.component';
-import { ListarSkillComponent } from './skill/listar-skill/listar-skill.component';
-import { RegistrarSkillComponent } from './skill/registrar-skill/registrar-skill.component';
-import { EditarSkillComponent } from './skill/editar-skill/editar-skill.component';
 import { AuthInterceptor } from './helpers/auth.interceptor';
+import { EditarTrabajoComponent } from './trabajo/editar-trabajo/editar-trabajo.component';
+import { ListarTrabajoComponent } from './trabajo/listar-trabajo/listar-trabajo.component';
+import { RegistrarTrabajoComponent } from './trabajo/registrar-trabajo/registrar-trabajo.component';
+import { ListarHskillComponent } from './hard-skill/listar-hskill/listar-hskill.component';
+import { EditarHskillComponent } from './hard-skill/editar-hskill/editar-hskill.component';
+import { RegistrarHskillComponent } from './hard-skill/registrar-hskill/registrar-hskill.component';
+import { ListarSskillComponent } from './soft-skill/listar-sskill/listar-sskill.component';
+import { RegistrarSskillComponent } from './soft-skill/registrar-sskill/registrar-sskill.component';
+import { EditarSskillComponent } from './soft-skill/editar-sskill/editar-sskill.component';
+import { ListarProyectoComponent } from './proyecto/listar-proyecto/listar-proyecto.component';
+import { RegistrarProyectoComponent } from './proyecto/registrar-proyecto/registrar-proyecto.component';
+import { EditarProyectoComponent } from './proyecto/editar-proyecto/editar-proyecto.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,9 +48,18 @@ import { AuthInterceptor } from './helpers/auth.interceptor';
     ListarPersonaComponent,
     EditarPersonaComponent,
     RegistrarPersonaComponent,
-    ListarSkillComponent,
-    RegistrarSkillComponent,
-    EditarSkillComponent
+    EditarTrabajoComponent,
+    ListarTrabajoComponent,
+    RegistrarTrabajoComponent,
+    ListarHskillComponent,
+    EditarHskillComponent,
+    RegistrarHskillComponent,
+    ListarSskillComponent,
+    RegistrarSskillComponent,
+    EditarSskillComponent,
+    ListarProyectoComponent,
+    RegistrarProyectoComponent,
+    EditarProyectoComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +72,8 @@ import { AuthInterceptor } from './helpers/auth.interceptor';
       {path: '', redirectTo: '/login', pathMatch: 'full'},
     ]),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
     // SweetAlert2Module.forRoot()
   ],
   providers: [

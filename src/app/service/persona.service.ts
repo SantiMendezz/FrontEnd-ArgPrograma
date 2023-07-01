@@ -8,8 +8,11 @@ import { Observable } from 'rxjs';
 })
 export class PersonaService {
 
-  //Esta Url obtiene el listado de toda la educacion en el BackEnd
-  private baseURL = "http://localhost:8080/api/v1/persona";
+  //Base de datos de Render
+  private baseURL = "https://backend-argprograma-ppaj.onrender.com/persona";
+
+  //Base de datos local
+  //private baseURL = "http://localhost:8080/api/v1/persona";
 
   constructor(private httpClient : HttpClient) {}
 

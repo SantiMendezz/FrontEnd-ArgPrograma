@@ -4,9 +4,14 @@ import { RegistrarEducacionComponent } from './educacion/registrar-educacion/reg
 import { EditarEducacionComponent } from './educacion/editar-educacion/editar-educacion.component';
 import { RegistrarPersonaComponent } from './persona/registrar-persona/registrar-persona.component';
 import { EditarPersonaComponent } from './persona/editar-persona/editar-persona.component';
-import { RegistrarSkillComponent } from './skill/registrar-skill/registrar-skill.component';
-import { EditarSkillComponent } from './skill/editar-skill/editar-skill.component';
-import { LoginComponent } from './components/login/login.component';
+import { RegistrarTrabajoComponent } from './trabajo/registrar-trabajo/registrar-trabajo.component';
+import { EditarTrabajoComponent } from './trabajo/editar-trabajo/editar-trabajo.component';
+import { RegistrarHskillComponent } from './hard-skill/registrar-hskill/registrar-hskill.component';
+import { EditarHskillComponent } from './hard-skill/editar-hskill/editar-hskill.component';
+import { RegistrarSskillComponent } from './soft-skill/registrar-sskill/registrar-sskill.component';
+import { EditarSskillComponent } from './soft-skill/editar-sskill/editar-sskill.component';
+import { RegistrarProyectoComponent } from './proyecto/registrar-proyecto/registrar-proyecto.component';
+import { EditarProyectoComponent } from './proyecto/editar-proyecto/editar-proyecto.component';
 
 //Agregamos las rutas de los componentes
 const routes: Routes = [
@@ -18,8 +23,17 @@ const routes: Routes = [
   {path : 'registrar-educacion', component: RegistrarPersonaComponent},
   {path : 'editar-educacion/:id', component: EditarEducacionComponent},
 
-  {path : 'registrar-skill', component: RegistrarSkillComponent},
-  {path : 'editar-skill/:id', component: EditarSkillComponent},
+  {path : 'registrar-hard-skill', component: RegistrarHskillComponent},
+  {path : 'editar-hard-skill/:id', component: EditarHskillComponent},
+
+  {path : 'registrar-soft-skill', component: RegistrarSskillComponent},
+  {path : 'editar-soft-skill/:id', component: EditarSskillComponent},
+
+  {path : 'registrar-trabajo', component: RegistrarTrabajoComponent},
+  {path : 'editar-trabajo/:id', component: EditarTrabajoComponent},
+
+  {path : 'registrar-proyecto', component: RegistrarProyectoComponent},
+  {path : 'editar-proyecto/:id', component: EditarProyectoComponent},
 
   //{path : 'login', component: LoginComponent}
   

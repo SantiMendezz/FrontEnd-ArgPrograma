@@ -1,0 +1,35 @@
+<div class="container-fluid large-container mt-4 pb-4">
+    <div class="row text-center pt-3">
+      <h2 class="pb-3" style="color: white;">Proyectos</h2>
+    </div>
+
+    <div class="mb-3 text-center">
+      <button class="btn btn-success" type="button" *ngIf="comprobarSesion()" routerLink="/registrar-proyecto">Agregar</button>
+    </div>
+
+    <div class="row" *ngFor="let proy of proyecto">
+      <div class="col text-center">
+        <img src="./assets/images/{{proy.primer_imagen}}" class="proyectos-imagen ">
+        <img src="./assets/images/{{proy.segundo_imagen}}" class="proyectos-imagen ">
+        <img src="./assets/images/{{proy.tercer_imagen}}" class="proyectos-imagen ">
+      </div>
+      <div class="col">
+        <h4>{{proy.nombre}}</h4>
+        <p>Fecha de realización: {{proy.fecha}}</p>
+        <p>
+          Descripción: {{proy.descripcion}}
+        </p>
+        <p>Tecnologías utilizadas: {{proy.tecnologia}}</p>
+        <p><a href="{{proy.link}}" class="btn btn-dark">Link del Proyecto</a></p>
+      </div>
+
+      <div class="mb-3 text-center">
+        <button (click)= "verEdicionDeProyecto(proy.id)" *ngIf="comprobarSesion()" type="button" class="btn btn-primary">Editar</button>
+      </div>
+      <div class="text-center">
+        <button (click)= "eliminarProyecto(proy.id)" *ngIf="comprobarSesion()" type="button" class="btn btn-danger">Eliminar</button>
+      </div>
+
+    </div>
+
+  </div>

@@ -1,0 +1,33 @@
+<div class=" mt-4 pt-3 pb-3 container center-container">
+
+    <div class="row">
+      <div class="col">
+        <h2 class="card__title pb-3 text-center" style="color: white;">Hard-Skills</h2>
+        <div class="mb-3 text-center">
+            <button class="btn btn-success" type="button" *ngIf="comprobarSesion()" routerLink="/registrar-hard-skill">Agregar</button>
+          </div>
+        <div class=" d-flex skills__header">
+          <span class="skills__start-level">0</span>
+          <span class="skills__start-level">10</span>
+        </div>
+          <div *ngFor="let sk of skill" class="">
+            <article class="carta">
+              <div class="skills">
+                <div class="skills__item">
+                  <p class="skills__tech">{{sk.nombre}}</p>
+                  <div class="skills__bar skills__bar--{{sk.porcentaje}}0"></div>
+                </div>
+
+                <div class="mb-3 text-center">
+                  <button (click)= "verEdicionDeSkill(sk.id)" *ngIf="comprobarSesion()" type="button" class="btn btn-primary">Editar</button>
+                </div>
+                <div class="text-center">
+                  <button (click)= "eliminarSkill(sk.id)" *ngIf="comprobarSesion()" type="button" class="btn btn-danger">Eliminar</button>
+                </div>
+              </div>
+            </article>
+          </div>
+      </div>
+
+    </div>
+  </div>
